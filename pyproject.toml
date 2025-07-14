@@ -26,7 +26,7 @@ dependencies = [
     "commentjson>=0.9.0",
     "jsonschema-pydantic>=0.6",
     "pywin32>=306; sys_platform == 'win32' or platform_system == 'Windows'",
-    "langgraph-prebuilt>=0.1.0",
+    "langgraph-prebuilt>=0.2.62",
     "standard-imghdr>=3.13.0",
 ]
 classifiers = [

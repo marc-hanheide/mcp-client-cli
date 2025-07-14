@@ -90,11 +90,13 @@ class OutputHandler:
             message_chunk = chunk[1][0]  # Get the message content
             if isinstance(message_chunk, AIMessageChunk):
                 content = message_chunk.content
-                self.last_message += content
                 if isinstance(content, str):
+                    self.last_message += content
                     md += content
                 elif isinstance(content, list) and len(content) > 0 and isinstance(content[0], dict) and "text" in content[0]:
-                    md += content[0]["text"]
+                    text_content = content[0]["text"]
+                    self.last_message += text_content
+                    md += text_content
         # If this is a final value
         elif isinstance(chunk, dict) and "messages" in chunk:
             # Print a newline after the complete message
