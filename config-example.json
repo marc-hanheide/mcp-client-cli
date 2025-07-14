@@ -1,0 +1,29 @@
+{
+  "systemPrompt": "You are an AI assistant helping me work with my local documents and files. You can use various tools to fetch, search, and manage my data.",
+  "llm": {
+    //"provider": "openai",
+    //"model": "gpt-4",
+    //"api_key": "SECRET",
+    "provider": "anthropic",
+    "model": "claude-sonnet-4-20250514",
+    "api_key": "SECRET",
+    "temperature": 0.3,
+    //"base_url": "https://api.openai.com/v1"  // Optional, for OpenRouter or other providers
+  },
+  "mcpServers": {
+    "fetch": {
+      "command": "uvx",
+      "args": ["mcp-server-fetch"],
+      "requires_confirmation": ["fetch"],
+      "enabled": true,  // Optional, defaults to true
+      "exclude_tools": []  // Optional, list of tool names to exclude
+    },
+    "rag_search": {
+      "command": "/Users/mhanheide/workspace/qdrant_file_scanner/.venv/bin/rag-mcp-server"
+    },
+    "youtube": {
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/adhikasp/mcp-youtube", "mcp-youtube"]
+    }
+  }
+}
